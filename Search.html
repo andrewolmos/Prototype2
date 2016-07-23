@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grid Layout</title>
+    <meta charset="utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+
+    <style type="text/css">
+        body { margin: 0; }
+        .grid-container {
+            margin: 20px 2%;
+            width: 100%;
+        }
+        .row:before,
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .column {
+            float: left;
+            min-height: 1px;
+            width: 29.5%;
+            padding: 12px;
+            /*background-color: #ffdcdc;*/
+        }
+        /*.outline, .outline * { outline: 1px solid #f6a1a1; }*/
+        img {
+            width: 150px;
+            height: 150px;
+            margin: 0 33.33%;
+        }
+        .grid-container {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 90%;
+        }
+        .column h4 {
+            margin: 0 33.33%;
+        }
+    </style>
+</head>
+<body>
+    <header class="bar bar-nav" style="position: initial;">
+        <h1 class="title">Search</h1>
+    </header>
+
+    <!-- TODO: resize column height -->
+    <div class="grid-container"> <!-- outline -->
+        <div class="row">
+            <div class="column">
+                <a href="top-left.html">
+                    <img src="http://www.commentskart.com/funny/wp-content/uploads/2013/08/Funny-Gangster-19.jpg">
+                    <h4>Gangster</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="http://hiphopisreal.ru/wp-content/uploads/eastcoast.jpg">
+                    <h4>East Coast</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="https://i.ytimg.com/vi/sTC7HTtUuTU/maxresdefault.jpg">
+                    <h4>West Coast</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="https://pbs.twimg.com/profile_images/1612972721/CRP_copy.jpg">
+                    <h4>Conscious</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="http://redmp3.su/cover/995344-460x460/alternative-rap-essentials.jpg">
+                    <h4>Alternative</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="https://cdn.spinrilla.com/albums/8759/large/3e94f9f4f632346617c4.jpg?1403991417">
+                    <h4>Trap</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="https://gp1.wac.edgecastcdn.net/802892/http_public_production/artists/images/1206486/original/crop:x0y0w248h186/resize:248x186/Street_Rap_-_La_Rue_En_Direct.jpg?1467124630">
+                    <h4>Street</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="http://2.bp.blogspot.com/-q-g1CJg1368/UDIl8CUd--I/AAAAAAAAAO4/qOWfxneviXI/s1600/Panama-City-Rap.jpg">
+                    <h4>Underground</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="#">
+                    <img src="https://images.rapgenius.com/sbihicwt8ems1epuopyxz9y9.1000x998x1.jpg">
+                    <h4>Boom Bap</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item active" href="Search.html" style="text-decoration: none;">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Search</span>
+        </a>
+        <a class="tab-item" href="discover.html" style="text-decoration: none;">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">Discover</span>
+        </a>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none;">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Top Charts</span>
+        </a>
+        <a class="tab-item" href="profile.html" style="text-decoration: none;">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Profile</span>
+        </a>
+    </nav>
+</body>
+</html>

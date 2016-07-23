@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top Charts</title>
+    <meta charset="utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+
+    <!-- https://www.sitepoint.com/ratchets-push-js-prototyping-mobile-apps-multiple-screens/ -->
+    <!-- <script src="js/ratchet.min.js"></script> -->
+</head>
+<body>
+
+
+    <style>
+    .navigate-right:after{
+        content: "";
+        background-image: url("lit.png");
+        width: 20px;
+        height: 20px;
+        }
+
+    img{
+        width: 120px;
+        height: 95px;
+        }
+    </style>
+
+
+
+
+    <header class="bar bar-nav" style="position: initial;">
+        <h1 class="title">Top Charts</h1>
+    </header>
+
+    <ul class="table-view">
+        <li class="table-view-cell media">
+            <a class="navigate-right">
+            <img class="media-object pull-left" src="http://www.thebitelife.com/wp-content/uploads/2016/02/Broccoli-alternate-1.jpg">
+            <img class="media-abject pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg" style="position: relative; width: 50px; height: 50px; top: 46px; left: -59px;">
+            <div class="media-body">
+                <h4>Lil Yatchy</h4>
+                <p>Rapper info.</p>
+            </div>
+            </a>
+        </li>
+        <li class="table-view-cell media">
+            <a class="navigate-right">
+            <img class="media-object pull-left" src="https://i.embed.ly/1/display?key=fc778e44915911e088ae4040f9f86dcd&url=https://i1.sndcdn.com/artworks-000081996621-58zj7r-t500x500.jpg">
+            <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg" style="position: relative; width: 50px; height: 50px; top: 43px; left: -61px;" >
+            <div class="media-body">
+                <h4>Rob Stone</h4>
+                <p>Rapper info.</p>
+            </div>
+            </a>
+        </li>
+        <li class="table-view-cell media">
+            <a class="navigate-right">
+            <img class="media-object pull-left" src="http://static.stereogum.com/uploads/2016/02/9487bca08453b5c7ad221c62a44947b3.1000x668x1.png">
+            <img class="media-object pull-left" src="http://mtv.mtvnimages.com/uri/mgid:uma:video:mtv.com:975975?width=1024&height=576" style="position: relative; width: 50px; height: 50px; top: 43px; left: -61px;" >
+            <div class="media-body">
+                <h4>Black Hippy</h4>
+                <p>Rapper info.</p>
+            </div>
+            </a>
+        </li>
+         <li class="table-view-cell media">
+            <a class="navigate-right">
+            <img class="media-object pull-left" src="http://premierwuzhere.com/blog/wp-content/uploads/2015/10/kirk-late-knight.jpg">
+            <img class="media-object pull-left" src="http://static.vibe.com/files/2015/10/kirk-knight-ig6-560x560.jpg" style="position: relative; width: 50px; height: 50px; top: 45px; left: -60px;" >
+            <div class="media-body">
+                <h4>Kirk Knight</h4>
+                <p>Rapper info.</p>
+            </div>
+            </a>
+        </li>
+    </ul>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item" href="Search.html">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Search</span>
+        </a>
+        <a class="tab-item" href="discover.html">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">Discover</span>
+        </a>
+        <a class="tab-item active" href="tabs.html">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Top Charts</span>
+        </a>
+        <a class="tab-item" href="profile.html">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Profile</span>
+        </a>
+    </nav>
+</body>
+</html>

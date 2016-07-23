@@ -1,0 +1,140 @@
+<!-- TODO: Update values to fit name -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8">
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+
+    <style type="text/css">
+        input[type="search"] {
+            border-radius: 20px;
+            margin: 10px 0 0 0;
+        }
+        .container {
+            margin: auto 2%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 90%;
+        }
+        #user-image {
+            float: left;
+            width: 100px;
+            height: 100px;
+            /*border-radius: 100%;*/
+        }
+        .name-description {
+            float: right;
+            margin: 0 48% 0 0;
+        }
+        .clear { clear: both; }
+        .profile-header { padding: 30px 0 30px 15px; }
+        .biography:before {
+            content: "Bio";
+            font-weight: bold;
+            color: black;
+        }
+        #name { padding: 30px; }
+
+        @media screen and (max-width: 720px) {
+            .name-description { margin: 0 62% 0 0; } /*0 50% 0 0*/
+            #name { margin: 0 25% 0 0; }
+        }
+        @media screen and (max-width: 690px) {
+            .name-description { margin: 0 35% 0 0; }
+            #name { margin: 0 40% 0 0; }
+        }
+
+        @media screen and (max-width: 360px) {
+            .name-description { margin: 0 -21% 0 0; }
+            #name { padding: 0 45px 0 0; }
+        }
+        .
+    </style>
+</head>
+<body>
+    <header class="bar bar-nav" style="position: initial;">
+        <h1 class="title">Profile</h1>
+    </header>
+    <div class="container">
+
+        <!-- TODO: Find a way to automatically resize #name right-padding -->
+        <div class="profile-header">
+            <img src="images/default.gif" id="user-image">
+            <div class="name-description">
+                <h2 id="name">Artist Name</h2>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="biography-container">
+            <p class="biography">
+                This is some text.
+            </p>
+        </div>
+
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="http://placehold.it/800x400" alt="...">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/800x400" alt="...">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="http://placehold.it/800x400" alt="...">
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item" href="Search.html" style="text-decoration: none;">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Search</span>
+        </a>
+        <a class="tab-item" href="discover.html" style="text-decoration: none;">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">Discover</span>
+        </a>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none;">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Top Charts</span>
+        </a>
+        <a class="tab-item active" href="#" style="text-decoration: none;">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Profile</span>
+        </a>
+    </nav>
+</body>
+</html>
