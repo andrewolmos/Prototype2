@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>icon-home</title>
+    <meta charset="utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="my-script.js"></script>
+
+    <style type="text/css">
+        body { margin: 0; }
+        .grid-container {
+            margin: 20px 2%;
+            width: 100%;
+        }
+        .row:before,
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        .column {
+            float: left;
+            min-height: 1px;
+            width: 29.5%;
+            padding: 12px;
+            /*background-color: #ffdcdc;*/
+        }
+        /*.outline, .outline * { outline: 1px solid #f6a1a1; }*/
+        img {
+            width: 32%;
+            height: 32%;
+            margin: 0 33.33%;
+        }
+        .grid-container {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 90%;
+            background-color: white;
+        }
+        .column h4 {
+            margin: 0 33.33%;
+            color: #FF423F;
+        }
+        .tab-item{
+            background-color: #FF423F;
+            color: #FFF;
+        }
+        .title{
+            background-color: #FF423F;
+        }
+
+        @media screen and (min-width: 360px) {
+            img{
+                width: 80%;
+                margin: 0 21%;
+            }
+            .column h4{
+                margin: 0 13%;
+                padding: 0 19%;
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (min-height: 360px){
+            .column h4{
+                height: 20%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="bar bar-nav" style="position: initial;">
+        <h1 class="title">Search</h1>
+    </header>
+
+    <!-- TODO: resize column height -->
+    <div class="grid-container"> <!-- outline -->
+        <div class="row">
+            <div class="column">
+                <a href="top-left.html">
+                    <img src="gangster.jpg">
+                    <h4>Gangster</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="top-mid.html">
+                    <img src="east-coast.jpg">
+                    <h4>East Coast</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="top-right.html">
+                    <img src="west-coast.jpg">
+                    <h4>West Coast</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="mid-left.html">
+                    <img src="conscious.jpg">
+                    <h4>Conscious</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="mid-mid.html">
+                    <img src="alternative-rap.jpg">
+                    <h4>Alternative</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="mid-right.html">
+                    <img src="trap.jpg">
+                    <h4>Trap</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="bottom-left.html">
+                    <img src="Street2.jpg">
+                    <h4>Street</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="bottom-mid.html">
+                    <img src="underground.jpg">
+                    <h4>Underground</h4>
+                </a>
+            </div>
+            <div class="column">
+                <a href="bottom-right.html">
+                    <img src="Boom-bap.jpg">
+                    <h4>Boom Bap</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item active" href="home.html" style="text-decoration: none;">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Search</span>
+        </a>
+        <a class="tab-item" href="discover.html" style="text-decoration: none;">
+            <span class="icon icon-star-filled"></span>
+            <span class="tab-label">Discover</span>
+        </a>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none;">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Top Charts</span>
+        </a>
+        <a class="tab-item" href="profile.html" style="text-decoration: none;">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Profile</span>
+        </a>
+    </nav>
+</body>
+</html>
