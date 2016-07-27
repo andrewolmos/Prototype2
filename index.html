@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grid Layout</title>
+    <title>icon-home</title>
     <meta charset="utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="my-script.js"></script>
 
     <style type="text/css">
         body { margin: 0; }
@@ -43,13 +44,32 @@
         }
         .column h4 {
             margin: 0 33.33%;
+            color: #FF423F;
         }
         .tab-item{
             background-color: #FF423F;
-            color: #ffffff;
+            color: #FFF;
         }
         .title{
             background-color: #FF423F;
+        }
+
+        @media screen and (min-width: 360px) {
+            img{
+                width: 80%;
+                margin: 0 21%;
+            }
+            .column h4{
+                margin: 0 13%;
+                padding: 0 19%;
+                font-size: 12px;
+            }
+        }
+
+        @media screen and (min-height: 360px){
+            .column h4{
+                height: 20%;
+            }
         }
     </style>
 </head>
