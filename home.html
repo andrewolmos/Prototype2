@@ -9,12 +9,10 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
-    <script src="my-script.js"></script>
-
     <style type="text/css">
         body { margin: 0; }
         .grid-container {
-            margin: 20px 2%;
+            margin: 20px 4%;
             width: 100%;
         }
         .row:before,
@@ -32,26 +30,36 @@
         }
         /*.outline, .outline * { outline: 1px solid #f6a1a1; }*/
         img {
-            width: 32%;
-            height: 32%;
+            width: 30%;
+            height: 30%;
             margin: 0 33.33%;
         }
         .grid-container {
             overflow-x: hidden;
             overflow-y: scroll;
             height: 90%;
-            background-color: white;
+            background-color: #000000;
         }
         .column h4 {
             margin: 0 33.33%;
             color: #FF423F;
+            font-family: "Century Gothic";
+        }
+        a{
+            font-family: "Century Gothic";
         }
         .tab-item{
-            background-color: #FF423F;
-            color: #FFF;
+            background-color: #333333;
+
         }
         .title{
-            background-color: #FF423F;
+            background-color: #CF2728;
+            color: white;
+            font-family: "Century Gothic";
+        }
+
+        body{
+            background-color: #000000;
         }
 
         @media screen and (min-width: 360px) {
@@ -75,7 +83,7 @@
 </head>
 <body>
     <header class="bar bar-nav" style="position: initial;">
-        <h1 class="title">Search</h1>
+        <h1 class="title">SEARCH</h1>
     </header>
 
     <!-- TODO: resize column height -->
@@ -132,27 +140,23 @@
             <div class="column">
                 <a href="bottom-right.html">
                     <img src="Boom-bap.jpg">
-                    <h4>Boom Bap</h4>
+                    <h4>Boom-Bap</h4>
                 </a>
             </div>
         </div>
     </div>
 
-    <nav class="bar bar-tab">
-        <a class="tab-item active" href="home.html" style="text-decoration: none;">
-            <span class="icon icon-home"></span>
+<nav class="bar bar-tab">
+        <a class="tab-item" href="home.html" style="text-decoration: none; color: red;">
             <span class="tab-label">Search</span>
         </a>
-        <a class="tab-item" href="discover.html" style="text-decoration: none;">
-            <span class="icon icon-star-filled"></span>
+        <a class="tab-item" href="discover.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Discover</span>
         </a>
-        <a class="tab-item" href="tabs.html" style="text-decoration: none;">
-            <span class="icon icon-search"></span>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none; color: white;>
             <span class="tab-label">Top Charts</span>
         </a>
-        <a class="tab-item" href="profile.html" style="text-decoration: none;">
-            <span class="icon icon-person"></span>
+        <a class="tab-item active" href="Profile.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Profile</span>
         </a>
     </nav>

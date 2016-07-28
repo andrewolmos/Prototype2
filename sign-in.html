@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <meta charset="utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <!-- <script   src="https://code.jquery.com/jquery-2.2.4.js"   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="   crossorigin="anonymous"></script> -->
+
+    <style type="text/css">
+        input[type="text"] { margin: 80% 0 0 0; } /* 5% 0 0 0*/
+        input[type="password"] { margin: 1em 0 30% 0; }
+        #make-account { margin: 20% 0 0 0; }
+        #splashscreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: white;
+        }
+        .btn { position: unset; }
+        .container { margin: auto 5%; }
+        @media screen and (max-width: 360px) {
+            input[type="text"] { margin: 80% 0 0 0; } /* 5% 0 0 0*/
+            input[type="password"] { margin: 1em 0 30% 0; }
+            #make-account { margin: 20% 0 0 0; }
+            #splashscreen { padding: 40% 0; }
+        }
+        @media screen and (min-width: 768px) { #splashscreen { padding: 40% 0; } }
+        @media screen and (min-width: 1000px) { #splashscreen { padding: 0; } }
+        @media screen and (min-width: 380px) {
+            #make-account { margin: 15% 0 0 0; }
+        }
+        @media screen and (min-width: 400px) {
+            input[type="password"] { margin: 1em 0 20% 0; }
+        }
+        @media screen and (min-width: 440px) {
+            input[type="password"] { margin: 1em 0 10% 0; }
+        }
+        @media screen and (min-width: 480px) {
+            input[type="text"] { margin: 55% 0 0 0; }
+        }
+        @media screen and (min-width: 620px) {
+            input[type="text"] { margin: 35% 0 0 0; }
+        }
+        @media screen and (min-width: 825px) {
+            input[type="text"] { margin: 30% 0 0 0; }
+            #make-account { margin: 10% 0 0 0; }
+        }
+        h1{
+            font-family: "Century Gothic";
+            color: white;
+        }
+        #splashscreen{
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div id="splashscreen">
+        <center>
+        <h1> Turn'T</h1>
+            <img src="logo.png" width="50%" height="30%">
+        </center>
+    </div>
+    <div class="container">
+        <form>
+            <input type="text" placeholder="Email or username" name="email-username">
+            <input type="password" placeholder="Password" name="password">
+            <button class="btn btn-positive btn-block">Sign In</button>
+        </form>
+        <center id="make-account"><a href="signup.html">Don't have an account? Sign up here!</a><center>
+    </div>
+</body>
+<script type="text/javascript">
+    function fade() {
+        $("#splashscreen").fadeOut(1000);
+    }
+    document.getElementById("splashscreen").addEventListener("click", fade);
+    window.onload = window.setTimeout(fade, 2000);
+</script>
+</html>

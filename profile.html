@@ -62,21 +62,34 @@
             #name { padding: 0 45px 0 0; }
         }
         .bar {
-            background-color: #FF423F;
+            background-color: #333333;
+            font-color: white;
         }
         .title {
-            background-color: #FF423F;
+            background-color: #CF2728;
+            color: white;
+            font-family: "Century Gothic";
         }
         .icon-gear{
         	position: relative;
-        	left: 650px;
+        	left: 500px;
         	top: 40px;
+        }
+        body{
+            background-color: #000000;
+        }
+        .profile-header{
+            color: white;
+        }
+        p{
+            color: white;
+            font-family: "Century Gothic";
         }
     </style>
 </head>
 <body>
     <header class="bar bar-nav" style="position: initial;">
-        <h1 class="title">Profile</h1>
+        <h1 class="title">LazyPanda</h1>
     </header>
     <div class="container">
 
@@ -91,14 +104,13 @@
         <div class="profile-header">
             <img src="images/default.gif" id="user-image">
             <div class="name-description">
-                <h2 id="name">(Music Listeners Name)</h2>
             </div>
             <div class="clear"></div>
         </div>
 
         <div id="biography-container">
             <p class="biography">
-                This is some text.
+                Hi, My Name is Alejandro and I am 15 years old. I like to run and read manga and I live in Los Angeles. 
             </p>
         </div>
 
@@ -137,20 +149,16 @@
     </div>
 
     <nav class="bar bar-tab">
-        <a class="tab-item" href="home.html" style="text-decoration: none;">
-            <span class="icon icon-home"></span>
+        <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Search</span>
         </a>
-        <a class="tab-item" href="discover.html" style="text-decoration: none;">
-            <span class="icon icon-star-filled"></span>
+        <a class="tab-item" href="discover.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Discover</span>
         </a>
-        <a class="tab-item" href="tabs.html" style="text-decoration: none;">
-            <span class="icon icon-search"></span>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Top Charts</span>
         </a>
-        <a class="tab-item active" href="#" style="text-decoration: none;">
-            <span class="icon icon-person"></span>
+        <a class="tab-item active" href="Profile.html" style="text-decoration: none; color: red;">
             <span class="tab-label">Profile</span>
         </a>
     </nav>

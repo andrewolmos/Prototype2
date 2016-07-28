@@ -19,15 +19,21 @@
             height: 80px;
         }
         .bar {
-            background-color: #FF423F;
+            background-color: #191919;
         }
         .title {
-            background-color: #FF423F;
+            background-color: #CF2728;
+            color: white;
         }
         .table-view{
             overflow-x: hidden;
             overflow-y: scroll;
             height: 98%;
+            background-color: #000000;
+            color: white;
+        }
+        body{
+            background-color: #000000;
         }
 
         audio, canvas, progress, video {
@@ -35,11 +41,14 @@
             vertical-align: baseline;
             width: 105%;
         }
+        .tab-item{
+            background-color: #333333;
+        }
     </style>
 
 
     <header class="bar bar-nav" style="position: initial;">
-        <h1 class="title">Gangster</h1>
+        <h1 class="title">GANGSTER</h1>
     </header>
 
 
@@ -49,7 +58,7 @@
             <a class="navigate-right">
             <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
             <div class="media-body">
-                <h4>Brocolli-by Lil Yachty </h4>
+                <h4>Brocolli - Lil Yachty </h4>
 
             <audio controls>
                 <source src="brocolli.mp3" type="audio/mpeg">
@@ -63,7 +72,7 @@
             <a class="navigate-right">
             <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
             <div class="media-body">
-                <h4>1 night- by Lil Yatchy </h4>
+                <h4>1 Night - Lil Yatchy </h4>
 
             <audio controls>
                 <source src="One night.mp3" type="audio/mpeg">
@@ -76,7 +85,7 @@
             <a class="navigate-right">
             <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg">
             <div class="media-body">
-                <h4>Chill Bill- By Rob Stone </h4>
+                <h4>Chill Bill - Rob Stone</h4>
 
                 <audio controls>
                 <source src="Chill.mp3" type="audio/mpeg">
@@ -88,21 +97,17 @@
 
 
 
-    <nav class="bar bar-tab">
-        <a class="tab-item active" href="home.html">
-            <span class="icon icon-home"></span>
+<nav class="bar bar-tab">
+        <a class="tab-item" href="home.html" style="text-decoration: none; color: red;">
             <span class="tab-label">Search</span>
         </a>
-        <a class="tab-item" href="discover.html">
-            <span class="icon icon-star-filled"></span>
+        <a class="tab-item" href="discover.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Discover</span>
         </a>
-        <a class="tab-item" href="tabs.html">
-            <span class="icon icon-search"></span>
+        <a class="tab-item" href="tabs.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Top Charts</span>
         </a>
-        <a class="tab-item" href="profile.html">
-            <span class="icon icon-person"></span>
+        <a class="tab-item active" href="Profile.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Profile</span>
         </a>
     </nav>
