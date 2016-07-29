@@ -129,7 +129,7 @@
           // User is signed in.
 
           // after sign in it will redirect to about.html ! change it to whatver you like.
-          window.location.href = "about.html";
+          window.location.href = "Settings.html";
 
 
 

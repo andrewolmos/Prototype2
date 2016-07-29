@@ -24,6 +24,10 @@
         .title {
             background-color: #CF2728;
             color: white;
+            font-family: "Century Gothic";
+        }
+        a{
+            font-family: "Century Gothic";
         }
         .table-view{
             overflow-x: hidden;
@@ -31,6 +35,7 @@
             height: 98%;
             background-color: #000000;
             color: white;
+            font-family: "Century Gothic";
         }
         body{
             background-color: #000000;
@@ -44,6 +49,19 @@
         .tab-item{
             background-color: #333333;
         }
+        .navigate-right:after { content: ''; }
+        body {
+            font-family: "Century Gothic";
+        }
+        .lit-button img {
+            width: 20px;
+            height: 20px;
+        }
+        .lit-button {
+            position: absolute;
+            top: 30%;
+            right: 15px;
+        }
     </style>
 
 
@@ -55,43 +73,43 @@
 
      <ul class="table-view">
         <li class="table-view-cell media">
-            <a class="navigate-right">
+            <div class="navigate-right">
             <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
             <div class="media-body">
                 <h4>Brocolli - Lil Yachty </h4>
 
             <audio controls>
-                <source src="brocolli.mp3" type="audio/mpeg">
+                <source src="music/brocolli.mp3" type="audio/mpeg">
             </audio>
                 
             </div>
-            </a>
+            </div>
         </li>
 
         <li class="table-view-cell media">
-            <a class="navigate-right">
+            <div class="navigate-right">
             <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
             <div class="media-body">
                 <h4>1 Night - Lil Yatchy </h4>
 
             <audio controls>
-                <source src="One night.mp3" type="audio/mpeg">
+                <source src="music/One night.mp3" type="audio/mpeg">
             </audio>
                 
             </div>
-            </a>
+            </div>
         </li>
         <li class="table-view-cell media">
-            <a class="navigate-right">
+            <div class="navigate-right">
             <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg">
             <div class="media-body">
                 <h4>Chill Bill - Rob Stone</h4>
 
                 <audio controls>
-                <source src="Chill.mp3" type="audio/mpeg">
+                <source src="music/Chill.mp3" type="audio/mpeg">
             </audio>
             </div>
-            </a>
+            </div>
         </li>
     </ul>
 
@@ -111,5 +129,42 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
+
+ <script type="text/javascript">
+        // TODO: With a database, update discover titles
+        function generateLitButton() {
+            var img = document.createElement("img");
+            var count = document.createElement('p');
+            var centre = document.createElement("center");
+            img.src = "images/lit.png";
+            count.textContent = 0;
+            centre.appendChild(img);
+            centre.appendChild(count);
+            centre.className = "lit-button";
+            centre.active = false;
+            centre.addEventListener("click", function() {
+                var image = this.childNodes[0];
+                var count = this.childNodes[1];
+                var currentCount = parseInt(count.textContent);
+                // TODO: Retrieve information from Firebase and update it
+                if (!this.active) {
+                    image.src = "images/lit-active.png";
+                    count.textContent = ++currentCount;
+                    this.active = true;
+                } else {
+                    image.src = "images/lit.png";
+                    count.textContent = --currentCount;
+                    this.active = false;
+                }
+            });
+            return centre;
+        }
+        window.onload = function() {
+            var tableView = document.getElementsByClassName("navigate-right");
+            for (var i = 0; i < tableView.length; i++)
+                tableView[i].appendChild(generateLitButton());
+        }
+    </script>
+
 </body>
 </html>

@@ -9,33 +9,19 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
-
-    <!-- https://www.sitepoint.com/ratchets-push-js-prototyping-mobile-apps-multiple-screens/ -->
-    <!-- <script src="js/ratchet.min.js"></script> -->
-</head>
-<body>
-
-
     <style>
-    .navigate-right:after{
-        content: "";
-        background-image: url("lit.png");
-        width: 20px;
-        height: 20px
+        img {
+            width: 120px;
+            height: 95px;
         }
 
-    img{
-        width: 120px;
-        height: 95px;
-        }
-
-     .bar {
+        .bar {
             background-color: #333333;
         }
-        a{
+        a {
             font-family: "Century Gothic";
         }
-    .title {
+        .title {
             background-color: #CF2728;
             color: white;
             text-transform: uppercase;
@@ -48,40 +34,53 @@
             background-color: #000000;
             color: white;
         }
-        p{
+        p {
             color: white;
         }
+        .table-view {
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 98%;
+        }
+        .navigate-right::after { content: ''; }
+        .lit-button {
+            position: absolute;
+            top: 30%;
+            right: 15px;
+        }
+        .lit-button img {
+            width: 20px;
+            height: 20px;
+        }
     </style>
-
-
-
-
+</head>
+<body>
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">DISCOVER</h1>
     </header>
 
     <ul class="table-view">
         <li class="table-view-cell media">
-            <a class="navigate-right">
-            <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
-            <div class="media-body">
-                <h4>Lil Yatchy (Place Holder)</h4>
-                <p>Age: 18 Year Old<br>Born: August 23, 1997<br>From: Atlanta, GA</p>
+            <div class="navigate-right">
+                <img class="media-object pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg">
+                <div class="media-body">
+                    <h4>Lil Yatchy (Place Holder)</h4>
+                    <p>Age: 18 Year Old<br>Born: August 23, 1997<br>From: Atlanta, GA</p>
+                </div>
             </div>
-            </a>
         </li>
         <li class="table-view-cell media">
-            <a class="navigate-right">
-            <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg">
-            <div class="media-body">
-                <h4>Rob Stone (Place Holder)</h4>
-                <p>Age: 21 Year Old <br> Born: January 25, 1995<br>From: Sand Diego, CA</p>
+            <div class="navigate-right">
+                <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg">
+                <div class="media-body">
+                    <h4>Rob Stone (Place Holder)</h4>
+                    <p>Age: 21 Year Old <br> Born: January 25, 1995<br>From: Sand Diego, CA</p>
+                </div>
             </div>
-            </a>
         </li>
     </ul>
 
-<nav class="bar bar-tab">
+    <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Search</span>
         </a>
@@ -95,5 +94,42 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
+
+
+     <script type="text/javascript">
+        // TODO: With a database, update discover titles
+        function generateLitButton() {
+            var img = document.createElement("img");
+            var count = document.createElement('p');
+            var centre = document.createElement("center");
+            img.src = "images/lit.png";
+            count.textContent = 0;
+            centre.appendChild(img);
+            centre.appendChild(count);
+            centre.className = "lit-button";
+            centre.active = false;
+            centre.addEventListener("click", function() {
+                var image = this.childNodes[0];
+                var count = this.childNodes[1];
+                var currentCount = parseInt(count.textContent);
+                // TODO: Retrieve information from Firebase and update it
+                if (!this.active) {
+                    image.src = "images/lit-active.png";
+                    count.textContent = ++currentCount;
+                    this.active = true;
+                } else {
+                    image.src = "images/lit.png";
+                    count.textContent = --currentCount;
+                    this.active = false;
+                }
+            });
+            return centre;
+        }
+        window.onload = function() {
+            var tableView = document.getElementsByClassName("navigate-right");
+            for (var i = 0; i < tableView.length; i++)
+                tableView[i].appendChild(generateLitButton());
+        }
+    </script>
 </body>
 </html>
