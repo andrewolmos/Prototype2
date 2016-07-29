@@ -63,18 +63,28 @@
             .name-description { margin: 0 -21% 0 0; }
             #name { padding: 0 45px 0 0; }
         }
+        @media screen and (max-width: 640) {
+            .icon-gear{
+                /*top: 40px;
+                padding: 0 48%;*/
+                position: absolute;
+                right: 30px;
+            }
+        }
         .bar {
             background-color: #333333;
             font-color: white;
+            font-family: "Century Gothic";
         }
         .title {
             background-color: #CF2728;
             color: white;
             font-family: "Century Gothic";
+            font-size: 28px;
         }
         .icon-gear{
         	position: relative;
-        	left: 250px;
+        	left: 290px;
         	top: 40px;
         }
         body{
@@ -91,7 +101,7 @@
 </head>
 <body>
     <header class="bar bar-nav" style="position: initial;">
-        <h1 class="title">LazyPanda</h1>
+        <h1 class="title">A-aron</h1>
     </header>
     <div class="container">
 
@@ -104,7 +114,7 @@
 
         <!-- TODO: Find a way to automatically resize #name right-padding -->
         <div class="profile-header">
-            <img src="http://9jaflaver.com/wp-content/uploads/2016/03/ac6e5981100beb736f2a981560d8cfb8.png" id="user-image">
+            <img src="images/lol.png" id="user-image">
             <div class="name-description">
             </div>
             <div class="clear"></div>
@@ -112,7 +122,7 @@
 
         <div id="biography-container">
             <p class="biography">
-                Hi, My Name is Alejandro and I am 15 years old. I like to run and read manga and I live in Los Angeles. 
+                Hi, My Name is Alejandro and I am 15 years old. I like to run and read manga and I live in Los Angeles. I also like to vape everyday when I finish my homework.
             </p>
         </div>
 
