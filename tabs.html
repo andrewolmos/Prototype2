@@ -15,7 +15,6 @@
 </head>
 <body>
 
-
     <style>
     .navigate-right:after{
         content: "";
@@ -33,11 +32,11 @@
             background-color: #333333;
         }
     .title {
-            background-color: #CF2728;
-            color: white;
-            font-size: 28px;
-            font-family: "Century Gothic";
-        }    
+        background-color: #CF2728;
+        color: white;
+        font-size: 28px;
+        font-family: "Century Gothic";
+    }    
 
     .icon-gear {
         position: relative;
@@ -59,10 +58,17 @@
     a{
         font-family: "Century Gothic";
     }
+    .navigate-right::after { content: ''; }
+    .lit-button {
+        position: absolute;
+        top: 30%;
+        right: 15px;
+    }
+    .lit-button img {
+        width: 30px;
+        height: 30px;
+    }
     </style>
-
-
-
 
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">TOP CHARTS</h1>
@@ -71,7 +77,7 @@
         <li class="table-view-cell media">
             <div class="navigate-right">
             <img class="media-object pull-left" src="https://i.ytimg.com/vi/j4L2vmBC3xA/maxresdefault.jpg">
-            <img class="media-abject pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg" style="position: relative; width: 50px; height: 50px; top: 45px; left: -60px;">
+            <img class="media-abject pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;">
             <div class="media-body">
                 <h4>Lil Yatchy (Place Holder)</h4>
                 <p>Song:D.R.A.M.- Brocolli<br> Release Date: 04-06-16<br>Duration: 3:45</p>
@@ -81,7 +87,7 @@
         <li class="table-view-cell media">
             <div class="navigate-right">
             <img class="media-object pull-left" src="https://i.embed.ly/1/display?key=fc778e44915911e088ae4040f9f86dcd&url=https://i1.sndcdn.com/artworks-000081996621-58zj7r-t500x500.jpg">
-            <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg" style="position: relative; width: 50px; height: 50px; top: 45px; left: -60px;" >
+            <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;" >
             <div class="media-body">
                 <h4>Rob Stone (Place Holder)</h4>
                 <p>Song:D.R.A.M.- Brocolli<br> Release Date: 04-06-16<br>Duration: 3:45</p>
@@ -89,9 +95,6 @@
             </div>
         </li>
     </ul>
-
-
-
 
 <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
@@ -108,4 +111,41 @@
         </a>
     </nav>
 </body>
+
+<script type="text/javascript">
+        // TODO: With a database, update discover titles
+        function generateLitButton() {
+            var img = document.createElement("img");
+            var count = document.createElement('p');
+            var centre = document.createElement("center");
+            img.src = "images/lit.png";
+            count.textContent = 0;
+            centre.appendChild(img);
+            centre.appendChild(count);
+            centre.className = "lit-button";
+            centre.active = false;
+            centre.addEventListener("click", function() {
+                var image = this.childNodes[0];
+                var count = this.childNodes[1];
+                var currentCount = parseInt(count.textContent);
+                // TODO: Retrieve information from Firebase and update it
+                if (!this.active) {
+                    image.src = "images/lit-active.png";
+                    count.textContent = ++currentCount;
+                    this.active = true;
+                } else {
+                    image.src = "images/lit.png";
+                    count.textContent = --currentCount;
+                    this.active = false;
+                }
+            });
+            return centre;
+        }
+        window.onload = function() {
+            var tableView = document.getElementsByClassName("navigate-right");
+            for (var i = 0; i < tableView.length; i++)
+                tableView[i].appendChild(generateLitButton());
+        }
+    </script>
+
 </html>
