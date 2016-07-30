@@ -42,37 +42,38 @@
             position: initial;
         }
         body{
-        	background: black;
+            background: black;
         }
 
         .vape {
-        	bottom: 0px;
-        	background-color: #A9A9A9;
-        	color: white;
-        	padding: 4%;
-        	position: initial;
-        	margin: 42% 0%;
+            bottom: 0px;
+            background-color: #A9A9A9;
+            color: white;
+            padding: 4%;
+            position: initial;
+            margin: 42% 0%;
         }
         .nation {
-        	font-size: 52px;
-        	font-family: "Century Gothic";
+            font-size: 28px;
+            font-family: "Century Gothic";
         }
         .title {
-        	font-size: 52px;
-        	font-family: "Century gothic";
+            font-size: 52px;
+            font-family: "Century gothic";
         }
     </style>
 </head>
 <body>
+
     <div id="splashscreen">
         <center>
             <h1>Turn'T</h1>
             <img src="images/sequence/spinning-logo.gif" width="50%" height="30%">
     <div class="Aaron">
-     	<header class="vape" style="position: initial;">
-        	<h1 class="nation">Loading...</h1>
-    	</header>
-   	</div>
+        <header class="vape" style="position: initial;">
+            <h1 class="nation">Loading...</h1>
+        </header>
+    </div>
    </div>
   </center>
     </div>
@@ -93,11 +94,99 @@
             <center><a href="sign-up.html" class="btn">Sign Up</a></center>
         </form>
     </div>
+
+    <div id="seethrough-screen"></div>
+    <div id="confirm-box">
+        <div id="content">
+            <h1 id="message"></h1>
+            <a id="confirm-button" href="#"></a>
+        </div>
+    </div>
+
 </body>
+<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script type="text/javascript">
     function fade() {
         $("#splashscreen").fadeOut(1000);
     }
+    document.getElementById("splashscreen").addEventListener("click", fade);
+    window.onload = window.setTimeout(fade, 2000);
+
+    var config = {
+        apiKey: "AIzaSyDAnnqD7oGzIHEgeuUq_KIau72H9TbcvSs",
+        authDomain: "prototype-795b9.firebaseapp.com",
+        databaseURL: "https://prototype-795b9.firebaseio.com",
+        storageBucket: "prototype-795b9.appspot.com",
+    };
+    firebase.initializeApp(config);
+
+    // var passwordAttempts = 0;
+
+    function signIn() {
+        var email = document.getElementsByTagName("input")[0].value;
+        var password = document.getElementsByTagName("input")[1].value;
+        if (email.lenght < 4) {
+            displayPopup("ERROR", "Enter a valid email.");
+            return;
+        }
+        if (password.lenght < 4) {
+            displayPopup("ERROR", "Please enter a password.");
+            return;
+        }
+
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            if (error.code === "auth/wrong-password")
+                displayPopup("ERROR", "Wrong password.");
+            else
+                displayPopup("ERROR", error.message);
+            console.log(error);
+        });
+        displayPopup("SUCCESS", "Welcome!");
+    }
+
+    function sendPasswordReset() {
+        var email = document.getElementsByTagName("input")[0].value;
+        firebase.auth().sendPasswordResetEmail(email).then(function() {
+            displayPopup("ERROR", "Password Reset Email Sent!");
+        }).catch(function(error) {
+            if (error.code === "auth/invalid-email")
+                displayPopup("ERROR", error.message);
+            else if (error.code === "auth/user-not-found")
+                displayPopup("ERROR", error.message);
+            console.log(error);
+        });
+    }
+
+    // TODO: Fix confirm-box dimensions and positions on multiple screens.
+    function displayPopup(type, message) {
+        var msg = document.getElementById("message");
+        var button = document.getElementById("confirm-button");
+        var seethroughScreen = document.getElementById("seethrough-screen");
+        var confirmBox = document.getElementById("confirm-box");
+        if (type === "SUCCESS") {
+            msg.innerHTML = message;
+            button.innerHTML = "Continue";
+            button.className = "btn btn-positive btn-block";
+            button.href = "genres.html";
+        } else {
+            msg.innerHTML = message;
+            button.innerHTML = "OK";
+            button.className = "btn btn-negative btn-block";
+            button.href = "#";
+            button.onclick = function() {
+                seethroughScreen.style.display = "none";
+                confirmBox.style.display = "none";
+            }
+        }
+
+        seethroughScreen.style.display = "initial";
+        confirmBox.style.display = "initial";
+    }
+
+    function fade() {
+        $("#splashscreen").fadeOut(1000);
+    }
+    
     document.getElementById("splashscreen").addEventListener("click", fade);
     window.onload = window.setTimeout(fade, 2000);
 </script>
