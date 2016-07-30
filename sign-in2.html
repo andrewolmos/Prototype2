@@ -9,10 +9,9 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
-     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
     <style type="text/css">
-        .container { margin: 0 5%; }
         .btn {
             width: 100%;
             padding: .3em;
@@ -44,9 +43,10 @@
             background-color: #CF2728;
             color: white;
             font-family: "Century Gothic";
-            font-size: 42px;
+            font-size: 28px;
         }
-         #seethrough-screen {
+          .container { padding: 30% 5%; }
+        #seethrough-screen {
             position: absolute;
             width: 100%;
             top: 0;
@@ -75,16 +75,17 @@
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">SIGN IN</h1>
     </header>
-    <div id="splashscreen">
-        <center>
-            <img src="images/logo.png" width="50%" height="30%">
-            <h1>Prototype</h1>
-        </center>
-    </div>
+
+    <a href="index.html">
+        <img src="images/back.png"></img>
+    </a>
+
     <div class="container">
         <form>
-            <input type="text" placeholder="Email or username" name="email-username">
-            <input type="password" placeholder="Password" name="password">
+            <input type="email" name="email" placeholder="Email or Username">
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <br>
         </form>
         <button onclick="signIn();" class="btn btn-positive btn-block">Sign In</button>
     </div>
@@ -96,16 +97,18 @@
             <a id="confirm-button" href="#"></a>
         </div>
     </div>
+
 </body>
+
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script type="text/javascript">
-    var config = {
-        apiKey: "AIzaSyDAnnqD7oGzIHEgeuUq_KIau72H9TbcvSs",
-        authDomain: "prototype-795b9.firebaseapp.com",
-        databaseURL: "https://prototype-795b9.firebaseio.com",
-        storageBucket: "prototype-795b9.appspot.com",
-    };
-    firebase.initializeApp(config);
+  var config = {
+    apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+    authDomain: "turnt-f422a.firebaseapp.com",
+    databaseURL: "https://turnt-f422a.firebaseio.com",
+    storageBucket: "turnt-f422a.appspot.com",
+  };
+  firebase.initializeApp(config);
     // var passwordAttempts = 0;
     function signIn() {
         var email = document.getElementsByTagName("input")[0].value;
@@ -149,7 +152,7 @@
             msg.innerHTML = message;
             button.innerHTML = "Continue";
             button.className = "btn btn-positive btn-block";
-            button.href = "genres.html";
+            button.href = "home.html";
         } else {
             msg.innerHTML = message;
             button.innerHTML = "OK";
@@ -166,7 +169,6 @@
     function fade() {
         $("#splashscreen").fadeOut(1000);
     }
-    document.getElementById("splashscreen").addEventListener("click", fade);
-    window.onload = window.setTimeout(fade, 2000);
 </script>
+
 </html>
