@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="js/lit.js"></script>
 
     <!-- https://www.sitepoint.com/ratchets-push-js-prototyping-mobile-apps-multiple-screens/ -->
     <!-- <script src="js/ratchet.min.js"></script> -->
@@ -16,7 +17,7 @@
 <body>
 
     <style>
-    .navigate-right:after{
+    .navigate-right:after {
         content: "";
         background-image: url("lit.png");
         width: 20px;
@@ -70,16 +71,20 @@
     }
     </style>
 
+<!--This is for the title-->
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">TOP CHARTS</h1>
     </header>
-            <ul class="table-view">
+<!--This is for the title-->
+
+<!--Content-->
+    <ul class="table-view">
         <li class="table-view-cell media">
             <div class="navigate-right">
             <img class="media-object pull-left" src="https://i.ytimg.com/vi/j4L2vmBC3xA/maxresdefault.jpg">
             <img class="media-abject pull-left" src="http://photon.hypb.st/hypetrak.com/images/2016/03/lil-yachty-chief-keef-young-nigga-theme-song.jpg" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;">
             <div class="media-body">
-                <h4>Lil Yatchy (Place Holder)</h4>
+                <h4>Lil Yachty (Place Holder)</h4>
                 <p>Song:D.R.A.M.- Brocolli<br> Release Date: 04-06-16<br>Duration: 3:45</p>
             </div>
             </div>
@@ -95,7 +100,13 @@
             </div>
         </li>
     </ul>
+    <div class="TC-Container">
 
+            
+    </div>
+<!--Content-->
+
+<!--This is the bottom bar-->
 <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Search</span>
@@ -110,6 +121,7 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
+<!--This is the bottom bar-->
 </body>
 
 <script type="text/javascript">

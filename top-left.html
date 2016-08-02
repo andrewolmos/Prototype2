@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script src="text/lit.js"></script>
 </head>
 <body>
 
@@ -140,40 +142,41 @@
         </a>
     </nav>
 
- <script type="text/javascript">
-        // TODO: With a database, update discover titles
-        function generateLitButton() {
-            var img = document.createElement("img");
-            var count = document.createElement('p');
-            var centre = document.createElement("center");
-            img.src = "images/lit.png";
-            count.textContent = 0;
-            centre.appendChild(img);
-            centre.appendChild(count);
-            centre.className = "lit-button";
-            centre.active = false;
-            centre.addEventListener("click", function() {
-                var image = this.childNodes[0];
-                var count = this.childNodes[1];
-                var currentCount = parseInt(count.textContent);
-                // TODO: Retrieve information from Firebase and update it
-                if (!this.active) {
-                    image.src = "images/lit-active.png";
-                    count.textContent = ++currentCount;
-                    this.active = true;
-                } else {
-                    image.src = "images/lit.png";
-                    count.textContent = --currentCount;
-                    this.active = false;
-                }
-            });
-            return centre;
-        }
-        window.onload = function() {
-            var tableView = document.getElementsByClassName("navigate-right");
-            for (var i = 0; i < tableView.length; i++)
-                tableView[i].appendChild(generateLitButton());
-        }
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+            // TODO: With a database, update discover titles
+            function generateLitButton() {
+                var img = document.createElement("img");
+                var count = document.createElement('p');
+                var centre = document.createElement("center");
+                img.src = "images/lit.png";
+                count.textContent = 0;
+                centre.appendChild(img);
+                centre.appendChild(count);
+                centre.className = "lit-button";
+                centre.active = false;
+                centre.addEventListener("click", function() {
+                    var image = this.childNodes[0];
+                    var count = this.childNodes[1];
+                    var currentCount = parseInt(count.textContent);
+                    // TODO: Retrieve information from Firebase and update it
+                    if (!this.active) {
+                        image.src = "images/lit-active.png";
+                        count.textContent = ++currentCount;
+                        this.active = true;
+                    } else {
+                        image.src = "images/lit.png";
+                        count.textContent = --currentCount;
+                        this.active = false;
+                    }
+                });
+                return centre;
+            }
+            window.onload = function() {
+                var tableView = document.getElementsByClassName("navigate-right");
+                for (var i = 0; i < tableView.length; i++)
+                    tableView[i].appendChild(generateLitButton());
+            }
     </script>
 
 </body>
