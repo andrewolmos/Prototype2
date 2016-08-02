@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 </head>
 <body>
 
@@ -31,20 +32,70 @@
         body{
             background-color: black;
         }
+        .container { padding: 20% 5%; }
+        #see-through-screen {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+        #confirm-box {
+            position: absolute;
+            width: 15em;
+            height: 15em;
+            top: 25%;
+            left: 25%;
+            background-color: #fff;
+            display: none;
+        }
+        #confirm-box h1 {
+            text-align: center;
+            padding: 1em 0;
+        }
+        #content { margin: 10%; }
+        .btn{
+            background-color: #CF2728;
+            border: none;
+        }
     </style>
 
 
     <header class="cow" style="position: initial;">
-        <h1 class="title">EDIT YOUR BIO</h1>
+        <h1 class="title">WRITE YOUR BIO</h1>
     </header>
     <br>
     <br>
 
-    <a href="Settings.html">
+    <a href="sign-up.html">
         <img src="images/back.png"></img>
     </a>
 
-</html>
+     <div class="container">
+        <form>
+            <input id="name" type="text" name="name" placeholder="Name">
+            <textarea id="biography" rows="4" cols="50" placeholder="Biography"></textarea>
+            <div>
+                <h4>User Type:</h4>
+                <select id="user-type">
+                    <option value="normal">Normal</option>
+                    <option value="artist">Artist</option>
+                </select>
+            </div>
+            <input id="birthday" type="date" name="birthday" placeholder="mm/dd/yyyy">
+        </form>
+        <button onclick="send();" class="btn btn-positive btn-block">Done</button>
+    </div>
+
+    <div id="see-through-screen"></div>
+    <div id="confirm-box">
+        <div id="content">
+            <h1 id="message"></h1>
+            <a id="confirm-button" href="home.html"></a>
+        </div>
+    </div>
 
 
     <nav class="bar bar-tab">
@@ -62,4 +113,62 @@
         </a>
     </nav>
 </body>
+
+<script type="text/javascript">
+     var config = {
+    apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+    authDomain: "turnt-f422a.firebaseapp.com",
+    databaseURL: "https://turnt-f422a.firebaseio.com",
+    storageBucket: "turnt-f422a.appspot.com",
+    };
+    firebase.initializeApp(config);
+    function getAge(birthday) {
+        var age = new Date(Date.now() - Date.parse(birthday));
+        return Math.abs(age.getUTCFullYear() - 1970);
+    }
+    function send() {
+        var user = firebase.database().ref("/users/" + localStorage.uid);
+        var birthday = document.getElementById("birthday").value;
+        user.set({
+            name: document.getElementById("name").value,
+            age: getAge(birthday),
+            email: localStorage.email, // What if .email was undefined?
+            type: document.getElementById("user-type").value,
+            bio: document.getElementById("biography").value,
+            birthday: birthday,
+            username: localStorage.username
+        });
+        user.once("value").then(function(dataSnapshot) {
+            localStorage.currentUser = JSON.stringify(dataSnapshot.val());
+            delete localStorage.email;
+            delete localStorage.username;
+        });
+        displayPopup("SUCCESS", "Continue");
+    }
+    // TODO: Fix confirm-box dimensions and positions on multiple screens.
+    function displayPopup(type, message) {
+        var msg = document.getElementById("message");
+        var button = document.getElementById("confirm-button");
+        var seethroughScreen = document.getElementById("see-through-screen");
+        var confirmBox = document.getElementById("confirm-box");
+        if (type === "SUCCESS") {
+            msg.innerHTML = message;
+            button.innerHTML = "Continue";
+            button.className = "btn btn-positive btn-block";
+            button.href = "home.html";
+        } else {
+            msg.innerHTML = message;
+            button.innerHTML = "OK";
+            button.className = "btn btn-negative btn-block";
+            button.href = "#";
+            button.onclick = function() {
+                seethroughScreen.style.display = "none";
+                confirmBox.style.display = "none";
+            }
+        }
+        seethroughScreen.style.display = "initial";
+        confirmBox.style.display = "initial";
+    }
+</script>
+
 </html>
