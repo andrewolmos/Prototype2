@@ -70,6 +70,11 @@
             padding: 1em 0; /* 10% 0 */
         }
         #content { margin: 10%; }
+        .back{
+            position: absolute;
+            top: 6px;
+            left: 13px;
+        }
     </style>
 </head>
 <body>
@@ -77,7 +82,7 @@
         <h1 class="title">SIGN UP</h1>
     </header>
 
-    <a href="index.html">
+    <a class="back" href="index.html">
         <img src="images/back.png"></img>
     </a>
 
@@ -99,7 +104,7 @@
     <div id="confirm-box">
         <div id="content">
             <h1 id="message"></h1>
-            <a id="confirm-button" href="#"></a>
+            <a id="confirm-button" href="edit.html"></a>
         </div>
     </div>
 
@@ -116,7 +121,7 @@
     firebase.initializeApp(config);
     function signUp() {
         var email = document.getElementsByTagName("input")[0].value;
-        var username = document.getElementsByTagName("input")[1].value;
+        localStorage.username = document.getElementsByTagName("input")[1].value;
         var password = document.getElementsByTagName("input")[2].value;
         var confirmedPassword = document.getElementsByTagName("input")[3].value;
         if (email.length < 4) {
@@ -128,22 +133,22 @@
                 displayPopup("ERROR", "Password is too short!");
                 return;
             } else {
-                firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+                firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+                    displayPopup("SUCCESS", "Success!");
+                    // sendConfirmationEmail();
+                }).catch(function(error) {
                     if (error.code === "auth/weak-password")
                         displayPopup("ERROR", "Password is too weak.");
                     else
                         displayPopup("ERROR", error.message);
                     console.log(error);
                 });
-                displayPopup("SUCCESS", "Success!");
-                // sendConfirmationEmail();
             }
         } else {
             displayPopup("ERROR", "Passwords do not match!");
             return;
         }
     }
-    // Optional in this case.
     function sendConfirmationEmail() {
         firebase.auth().currentUser.sendEmailVerification().then(function() {
             alert("Email verification sent!");
@@ -159,7 +164,9 @@
             msg.innerHTML = message;
             button.innerHTML = "Continue";
             button.className = "btn btn-positive btn-block";
-            button.href = "home.html";
+            button.href = "edit.html";
+            localStorage.uid = ((firebase.auth()).currentUser).uid;
+            localStorage.email = ((firebase.auth()).currentUser).email;
         } else {
             msg.innerHTML = message;
             button.innerHTML = "OK";

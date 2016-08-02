@@ -1,21 +1,22 @@
-<!-- TODO: Update values to fit name -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Profile</title>
     <meta charset="utf-8">
 
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+
 
     <style type="text/css">
         input[type="search"] {
@@ -32,48 +33,23 @@
             float: left;
             width: 100px;
             height: 100px;
-            margin: 0 -8%;
-            position: relative;
-            left: 10%;
-            /*border-radius: 100%;*/
-        }
-        .name-description {
-            float: right;
-            margin: 0 48% 0 0;
         }
         .clear { clear: both; }
-        .profile-header { padding: 30px 0 30px 15px; }
-        .biography:before {
-            content: "Bio";
+        .profile-header { padding: 20px 0; }
+        #biography:before {
+            content: "Bio ";
             font-weight: bold;
-            color: black;
+            color: white;
         }
-        #name { padding: 30px; }
-
-        @media screen and (max-width: 720px) {
-            .name-description { margin: 0 62% 0 0; } /*0 50% 0 0*/
-            #name { margin: 0 25% 0 0; }
+        #name {
+            position: absolute;
+            /*margin: 30px 0 0 120px;*/
+            color: white;
         }
-        @media screen and (max-width: 690px) {
-            .name-description { margin: 0 35% 0 0; }
-            #name { margin: 0 40% 0 0; }
-        }
-
-        @media screen and (max-width: 360px) {
-            .name-description { margin: 0 -21% 0 0; }
-            #name { padding: 0 45px 0 0; }
-        }
-        @media screen and (max-width: 640) {
-            .icon-gear{
-                /*top: 40px;
-                padding: 0 48%;*/
-                position: absolute;
-                right: 30px;
-            }
-        }
+        #album-carousel { display: none; }
+        @media screen and (max-height: 640px) { .carousel { margin: 0 0 15% 0; } }
         .bar {
             background-color: #333333;
-            font-color: white;
             font-family: "Century Gothic";
         }
         .title {
@@ -82,51 +58,41 @@
             font-family: "Century Gothic";
             font-size: 28px;
         }
-        .icon-gear{
-        	position: relative;
-        	left: 290px;
-        	top: 40px;
-        }
         body{
-            background-color: #000000;
+            background-color: black;
         }
-        .profile-header{
-            color: white;
-        }
-        p{
-            color: white;
-            font-family: "Century Gothic";
+        .icon-gear{
+            position: absolute;
+            right: 30px;
+            top: 80px;
+            color: #CF2728;
         }
     </style>
 </head>
 <body>
     <header class="bar bar-nav" style="position: initial;">
-        <h1 class="title">(Listeners Name)</h1>
+        <h1 id="name" class="title"></h1>
     </header>
     <div class="container">
-
-
-    	<a href="Settings.html">
-    		<span class="icon icon-gear"></span>
-        </a>
-
-
-
-        <!-- TODO: Find a way to automatically resize #name right-padding -->
         <div class="profile-header">
-            <img src="images/lol.png" id="user-image">
-            <div class="name-description">
-            </div>
+            <img src="images/default.gif" id="user-image">
+
+            <!-- <div class="name-description">
+                <h3 id="name"></h3>
+            </div> -->
+
+            <a href="Settings.html">
+                <span class="icon icon-gear"></span>
+            </a>
+
             <div class="clear"></div>
         </div>
 
-        <div id="biography-container">
-            <p class="biography">
-                (Your biography)
-            </p>
+        <div class="biography-container">
+            <p id="biography"></p>
         </div>
 
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div id="album-carousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
@@ -137,16 +103,19 @@
                 <div class="item active">
                     <img src="http://placehold.it/800x400" alt="...">
                     <div class="carousel-caption">
+                        <h2>Heading</h2>
                     </div>
                 </div>
                 <div class="item">
                     <img src="http://placehold.it/800x400" alt="...">
                     <div class="carousel-caption">
+                        <h2>Heading</h2>
                     </div>
                 </div>
                 <div class="item">
                     <img src="http://placehold.it/800x400" alt="...">
                     <div class="carousel-caption">
+                        <h2>Heading</h2>
                     </div>
                 </div>
             </div>
@@ -160,7 +129,7 @@
         </div>
     </div>
 
-    <nav class="bar bar-tab">
+   <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Search</span>
         </a>
@@ -175,4 +144,25 @@
         </a>
     </nav>
 </body>
+<script type="text/javascript">
+    var config = {
+        apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+        authDomain: "turnt-f422a.firebaseapp.com",
+        databaseURL: "https://turnt-f422a.firebaseio.com",
+        storageBucket: "turnt-f422a.appspot.com",
+    };
+    firebase.initializeApp(config);
+    window.onload = function() {
+        var name = document.getElementById("name");
+        var bio = document.getElementById("biography");
+        var carousel = document.getElementById("album-carousel");
+        var user = JSON.parse(localStorage.currentUser);
+        name.textContent = user.name;
+        bio.textContent = user.bio;
+        if (user.type !== "artist")
+            carousel.style.display = "none";
+        else
+            carousel.style.display = "initial";
+    };
+</script>
 </html>

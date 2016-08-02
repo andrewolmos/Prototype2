@@ -45,7 +45,7 @@
             font-family: "Century Gothic";
             font-size: 28px;
         }
-          .container { padding: 30% 5%; }
+        .container { padding: 30% 5%; }
         #seethrough-screen {
             position: absolute;
             width: 100%;
@@ -57,8 +57,8 @@
         }
         #confirm-box {
             position: absolute;
-            width: 15em; /* 60% */
-            height: 15em; /* 40% */
+            width: 15em;
+            height: 15em;
             top: 25%;
             left: 25%;
             background-color: #fff;
@@ -66,9 +66,14 @@
         }
         #confirm-box h1 {
             text-align: center;
-            padding: 1em 0; /* 10% 0 */
+            padding: 1em 0;
         }
         #content { margin: 10%; }
+        .back{
+            position: absolute;
+            top: 6px;
+            left: 13px;
+        }
     </style>
 </head>
 <body>
@@ -76,7 +81,7 @@
         <h1 class="title">SIGN IN</h1>
     </header>
 
-    <a href="index.html">
+    <a class="back" href="index.html">
         <img src="images/back.png"></img>
     </a>
 
@@ -94,7 +99,7 @@
     <div id="confirm-box">
         <div id="content">
             <h1 id="message"></h1>
-            <a id="confirm-button" href="#"></a>
+            <a id="confirm-button" href="home.html"></a>
         </div>
     </div>
 
@@ -102,14 +107,15 @@
 
 <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script type="text/javascript">
-  var config = {
-    apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
-    authDomain: "turnt-f422a.firebaseapp.com",
-    databaseURL: "https://turnt-f422a.firebaseio.com",
-    storageBucket: "turnt-f422a.appspot.com",
-  };
-  firebase.initializeApp(config);
-    // var passwordAttempts = 0;
+    var config = {
+        apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+        authDomain: "turnt-f422a.firebaseapp.com",
+        databaseURL: "https://turnt-f422a.firebaseio.com",
+        storageBucket: "turnt-f422a.appspot.com",
+    };
+
+    firebase.initializeApp(config);
+
     function signIn() {
         var email = document.getElementsByTagName("input")[0].value;
         var password = document.getElementsByTagName("input")[1].value;
@@ -121,15 +127,18 @@
             displayPopup("ERROR", "Please enter a password.");
             return;
         }
-        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+        firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+            displayPopup("SUCCESS", "Welcome!");
+        }).catch(function(error) {
             if (error.code === "auth/wrong-password")
                 displayPopup("ERROR", "Wrong password.");
             else
                 displayPopup("ERROR", error.message);
             console.log(error);
         });
-        displayPopup("SUCCESS", "Welcome!");
     }
+
+    // This is optional
     function sendPasswordReset() {
         var email = document.getElementsByTagName("input")[0].value;
         firebase.auth().sendPasswordResetEmail(email).then(function() {
@@ -142,6 +151,7 @@
             console.log(error);
         });
     }
+
     // TODO: Fix confirm-box dimensions and positions on multiple screens.
     function displayPopup(type, message) {
         var msg = document.getElementById("message");
@@ -153,6 +163,11 @@
             button.innerHTML = "Continue";
             button.className = "btn btn-positive btn-block";
             button.href = "home.html";
+            uid = ((firebase.auth()).currentUser).uid;
+            firebase.database().ref("/users/" + uid).once("value").then(function(dataSnapshot) {
+                localStorage.currentUser = JSON.stringify(dataSnapshot.val());
+                localStorage.uid = uid;
+            });
         } else {
             msg.innerHTML = message;
             button.innerHTML = "OK";
@@ -165,9 +180,6 @@
         }
         seethroughScreen.style.display = "initial";
         confirmBox.style.display = "initial";
-    }
-    function fade() {
-        $("#splashscreen").fadeOut(1000);
     }
 </script>
 
