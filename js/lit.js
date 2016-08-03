@@ -14,7 +14,15 @@ window.onload = function(){
 	$(".lit-button").html(lit);
 	});
 
-function
+function countLikes(){
+	$(".lit-button").click(function(){
+		$("this").html
+	var ref = firebase.database().ref('artists').child('Lil Yachty').set({
+		count:0;
+	});
+    });
+
+}
 //----------------------------------------------------------
 
 }
