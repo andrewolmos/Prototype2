@@ -35,8 +35,12 @@
             margin: 0 33.33%;
         }
         .grid-container {
-            overflow: scroll;
+            overflow-x: hidden;
+            overflow-y: scroll;
             height: 100%;
+            background-color: #000000;
+            color: white;
+            font-family: "Century Gothic";
         }
         a{
             font-family: "Century Gothic";
@@ -74,14 +78,9 @@
         }
         .column h4{
             background-color: black;
-            border: 2px solid #CF2728;
-            color: white;
-            padding: 15px 32px;
+            color: #CF2728;
             text-align: center;
             display: inline-block;
-            margin: 4px 2px;
-            font-size: 12px;
-            border-radius: 45%;
             font-family: "Century Gothic";
         }
     </style>
@@ -96,42 +95,50 @@
         <div class="row">
             <div class="column">
                 <a href="top-left.html">
-                    <h4 style="left: 10% ">Gangster</h4>
+                    <img src="images/gangster.jpg">
+                    <h4>Gangster</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="top-mid.html">
+                    <img src="images/east-coast.jpg">
                     <h4>East Coast</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="top-right.html">
-                    <h4 style="right: 3%;">West Coast</h4>
+                    <img src="images/west-coast.jpg">
+                    <h4>West Coast</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="mid-left.html">
-                    <h4 style="margin: 0 3%; position: absolute; top: 26%; height: 45px; left: 3%;">Lyrical Rap</h4>
+                    <img src="images/conscious.jpg">
+                    <h4>Lyrical</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="mid-mid.html">
-                    <h4 style="margin: 0 4%; position: absolute; top: 26%; height: 45px; right: 3%;">Alternative Rap</h4>
+                    <img src="images/alternative-rap.jpg">
+                    <h4 style="margin: 3% 4%;">Alternative</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="mid-right.html">
-                    <h4 style="position: absolute; top:40%; height: 45px; right: 10%;">Trap</h4>
+                    <img src="images/trap.jpg">
+                    <h4>Trap</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="bottom-left.html">
-                    <h4 style="position: absolute; top: 40%; height: 45px; left: 7%">Street</h4>
+                    <img src="images/Street2.jpg">
+                    <h4>Street</h4>
                 </a>
             </div>
             <div class="column">
                 <a href="bottom-mid.html">
-                    <h4 style="margin: 0 -6%; position: absolute; top: 40%; height: 45px; left:40%;">Underground</h4>
+                    <img src="images/underground.jpg">
+                    <h4 style="padding: 4%;">Underground</h4>
                 </a>
             </div>
         </div>
