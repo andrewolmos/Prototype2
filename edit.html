@@ -58,6 +58,8 @@
             overflow: scroll;
             height: 100%;
         }
+        h4 { color: white; }
+        #cancel-button { display: none; }
     </style>
 </head>
 <body>
@@ -179,6 +181,8 @@
     window.onload = function() {
         var artistName = document.getElementById("artist-name");
         var userType = document.getElementById("user-type");
+        var username = document.getElementById("username");
+        var email = document.getElementById("email");
 
         userType.addEventListener("change", function() {
             if (this.value === "artist")
@@ -187,10 +191,18 @@
                 artistName.style.display = "none";
         });
 
+        if (artistName.value !== "artist")
+            artistName.style.display = "none";
+
+        if (localStorage.username !== undefined)
+            username.style.display = "none";
+
+        if (localStorage.email !== undefined)
+            email.style.display = "none";
+
         if (localStorage.currentUser !== undefined) {
             var currentUser = JSON.parse(localStorage.currentUser);
 
-            var email = document.getElementById("email");
             var username = document.getElementById("username");
 
             if (currentUser.type === "artist") {
