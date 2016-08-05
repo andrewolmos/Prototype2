@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign In</title>
+    <title>SIGN IN</title>
     <meta charset="utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 
     <style type="text/css">
         .btn {
@@ -22,9 +24,7 @@
             font-family: "Century Gothic";
             font-size: 31px;
         }
-        body {
-            background-color: black;
-        }
+        body { background-color: black; }
         input[type="text"],
         input[type="password"],
         input[type="email"] {
@@ -109,7 +109,6 @@
 
 </body>
 
-<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script type="text/javascript">
     var config = {
         apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
@@ -142,7 +141,6 @@
         });
     }
 
-    // This is optional
     function sendPasswordReset() {
         var email = document.getElementsByTagName("input")[0].value;
         firebase.auth().sendPasswordResetEmail(email).then(function() {
@@ -186,5 +184,4 @@
         confirmBox.style.display = "initial";
     }
 </script>
-
 </html>

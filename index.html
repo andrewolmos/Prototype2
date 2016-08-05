@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sign In</title>
+    <title>SPLASHSCREEN</title>
     <meta charset="utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 
     <style type="text/css">
@@ -22,7 +23,7 @@
             background-color: black;
         }
         .container { margin: auto 5%; }
-        @media screen and (max-width: 360px) { #splashscreen { padding: 40% 0; }}
+        @media screen and (max-width: 360px) { #splashscreen { padding: 40% 0; } }
         @media screen and (min-width: 768px) { #splashscreen { padding: 40% 0; } }
         @media screen and (min-width: 1000px) { #splashscreen { padding: 0; } }
         .title {
@@ -31,9 +32,7 @@
             font-family: "Century Gothic";
             color: white;
         }
-        body{
-            background: black;
-        }
+        body { background: black; }
         .btn {
             width: 100%;
             padding: .3em;
@@ -64,19 +63,17 @@
     </style>
 </head>
 <body>
-
     <div id="splashscreen">
         <center>
             <h1>Turn'T</h1>
             <img src="images/sequence/spinning-logo.gif" width="50%" height="30%">
-    <div class="Aaron">
-        <header class="vape" style="position: initial;">
-            <h1 class="nation">Loading...</h1>
-        </header>
+            <div class="aaron">
+                <header class="vape" style="position: initial;">
+                    <h1 class="nation">Loading...</h1>
+                </header>
+            </div>
+        </center>
     </div>
-   </div>
-  </center>
-</div>
 
     <header id="turn-t-title" class="bar bar-nav" style="position: relative;">
         <h1 class="title">TURN'T</h1>
@@ -88,7 +85,7 @@
             <div class="container">
         </center>
         <form>
-            <center><a href="sign-in2.html" class="btn">Sign In</a></center>
+            <center><a href="sign-in.html" class="btn">Sign In</a></center>
             <br>
             <br>
             <center><a href="sign-up.html" class="btn">Sign Up</a></center>
@@ -100,27 +97,19 @@
             <div id="content">
                 <h1 id="message"></h1>
                 <a id="confirm-button" href="#"></a>
+            </div>
         </div>
     </div>
-
 </body>
-<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 <script type="text/javascript">
-    function fade() {
-        $("#splashscreen").fadeOut(1000);
-    }
-    document.getElementById("splashscreen").addEventListener("click", fade);
-    window.onload = window.setTimeout(fade, 2000);
-
     var config = {
-    apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
-    authDomain: "turnt-f422a.firebaseapp.com",
-    databaseURL: "https://turnt-f422a.firebaseio.com",
-    storageBucket: "turnt-f422a.appspot.com",
+        apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+        authDomain: "turnt-f422a.firebaseapp.com",
+        databaseURL: "https://turnt-f422a.firebaseio.com",
+        storageBucket: "turnt-f422a.appspot.com",
     };
-    firebase.initializeApp(config);
 
-    // var passwordAttempts = 0;
+    firebase.initializeApp(config);
 
     function signIn() {
         var email = document.getElementsByTagName("input")[0].value;

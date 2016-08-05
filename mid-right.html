@@ -9,51 +9,37 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
-</head>
-<body>
-
 
     <style>
         img {
             width: 80px;
             height: 80px;
         }
-        .bar {
-            background-color: #191919;
-        }
+        .bar { background-color: #191919; }
         .title {
             background-color: #CF2728;
             color: white;
             font-family: "Century Gothic";
             font-size: 28px;
         }
-        a{
-            font-family: "Century Gothic";
-        }
+        a { font-family: "Century Gothic"; }
         .table-view{
             overflow-x: hidden;
             overflow-y: scroll;
-            height: 98%;
-            background-color: #000000;
+            height: 100%;
+            background-color: black;
             color: white;
             font-family: "Century Gothic";
         }
-        body{
-            background-color: #000000;
-        }
-
+        body { background-color: black; }
         audio, canvas, progress, video {
             display: inline-block;
             vertical-align: baseline;
             width: 105%;
         }
-        .tab-item{
-            background-color: #333333;
-        }
-        .navigate-right:after { content: ''; }
-        body {
-            font-family: "Century Gothic";
-        }
+        .tab-item { background-color: #333; }
+        .navigate-right:after { content: ' '; }
+        body { font-family: "Century Gothic"; }
         .lit-button img {
             width: 30px;
             height: 30px;
@@ -63,25 +49,23 @@
             top: 30%;
             right: 15px;
         }
-        .back{
+        .back {
             position: absolute;
             top: 2px;
             left: 13px;
         }
     </style>
-
-
+</head>
+<body>
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">TRAP</h1>
     </header>
-
+    
     <a class="back" href="home.html">
         <img src="images/back.png" style="width: 40px; height: 40px;"></img>
     </a>
 
-
-
-<nav class="bar bar-tab">
+    <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: red;">
             <span class="tab-label">Search</span>
         </a>
@@ -95,42 +79,5 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
-
- <script type="text/javascript">
-        // TODO: With a database, update discover titles
-        function generateLitButton() {
-            var img = document.createElement("img");
-            var count = document.createElement('p');
-            var centre = document.createElement("center");
-            img.src = "images/lit.png";
-            count.textContent = 0;
-            centre.appendChild(img);
-            centre.appendChild(count);
-            centre.className = "lit-button";
-            centre.active = false;
-            centre.addEventListener("click", function() {
-                var image = this.childNodes[0];
-                var count = this.childNodes[1];
-                var currentCount = parseInt(count.textContent);
-                // TODO: Retrieve information from Firebase and update it
-                if (!this.active) {
-                    image.src = "images/lit-active.png";
-                    count.textContent = ++currentCount;
-                    this.active = true;
-                } else {
-                    image.src = "images/lit.png";
-                    count.textContent = --currentCount;
-                    this.active = false;
-                }
-            });
-            return centre;
-        }
-        window.onload = function() {
-            var tableView = document.getElementsByClassName("navigate-right");
-            for (var i = 0; i < tableView.length; i++)
-                tableView[i].appendChild(generateLitButton());
-        }
-    </script>
-
 </body>
 </html>

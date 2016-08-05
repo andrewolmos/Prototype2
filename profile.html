@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile</title>
+    <title>PROFILE</title>
     <meta charset="utf-8">
 
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -51,7 +50,7 @@
         #album-carousel { 
             display: none;
             position: initial;
-            }
+        }
         @media screen and (max-height: 640px) { .carousel { margin: 0 0 15% 0; } }
         .bar {
             background-color: #333333;
@@ -63,10 +62,8 @@
             font-family: "Century Gothic";
             font-size: 28px;
         }
-        body{
-            background-color: black;
-        }
-        .icon-gear{
+        body { background-color: black; }
+        .icon-gear {
             position: absolute;
             right: 30px;
             top: 80px;
@@ -81,10 +78,6 @@
     <div class="container">
         <div class="profile-header">
             <img src="images/default.gif" id="user-image">
-
-            <!-- <div class="name-description">
-                <h3 id="name"></h3>
-            </div> -->
 
             <a href="Settings.html">
                 <span class="icon icon-gear"></span>
@@ -156,18 +149,22 @@
         databaseURL: "https://turnt-f422a.firebaseio.com",
         storageBucket: "turnt-f422a.appspot.com",
     };
+
     firebase.initializeApp(config);
+
     window.onload = function() {
         var name = document.getElementById("name");
         var bio = document.getElementById("biography");
         var carousel = document.getElementById("album-carousel");
         var user = JSON.parse(localStorage.currentUser);
+
         name.textContent = user.name;
         bio.textContent = user.bio;
+
         if (user.type !== "artist")
             carousel.style.display = "none";
         else
-            carousel.style.display = "initial";
+            carousel.style.display = "relative";
     };
 </script>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Top Charts</title>
+    <title>TOP CHARTS</title>
     <meta charset="utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -11,105 +11,88 @@
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
     <script src="js/lit.js"></script>
 
-    <!-- https://www.sitepoint.com/ratchets-push-js-prototyping-mobile-apps-multiple-screens/ -->
-    <!-- <script src="js/ratchet.min.js"></script> -->
+    <style>
+        .navigate-right:after {
+            content: ' ';
+            background-image: url("lit.png");
+            width: 20px;
+            height: 20px;
+        }
+        img {
+            width: 120px;
+            height: 95px;
+        }
+        .bar { background-color: #333; }
+        .title {
+            background-color: #CF2728;
+            color: white;
+            font-size: 28px;
+            font-family: "Century Gothic";
+        }    
+        .icon-gear {
+            position: relative;
+            left: 250px;
+            top: 40px;
+        }
+        body { background-color: black; }
+        .table-view{
+            background-color: black;
+            color: white;
+            margin: 0 -6%;
+            padding: 0 3%;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-family: "Century Gothic";
+        }
+        p { color: white; }
+        a { font-family: "Century Gothic"; }
+        .navigate-right:after { content: ' '; }
+        .lit-button {
+            position: absolute;
+            top: 30%;
+            right: 15px;
+        }
+        .lit-button img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
-
-    <style>
-    .navigate-right:after {
-        content: "";
-        background-image: url("lit.png");
-        width: 20px;
-        height: 20px;
-        }
-
-    img{
-        width: 120px;
-        height: 95px;
-        }
-
-    .bar {
-            background-color: #333333;
-        }
-    .title {
-        background-color: #CF2728;
-        color: white;
-        font-size: 28px;
-        font-family: "Century Gothic";
-    }    
-
-    .icon-gear {
-        position: relative;
-        left: 250px;
-        top: 40px;
-    }
-    body{
-        background-color: #000000;
-    }
-    .table-view{
-        background-color: #000000;
-        color: white;
-        margin: 0 -6%;
-        padding: 0 3%;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        height: 100%;
-        background-color: #000000;
-        color: white;
-        font-family: "Century Gothic";
-    }
-    p{
-        color: white;
-    }
-    a{
-        font-family: "Century Gothic";
-    }
-    .navigate-right::after { content: ''; }
-    .lit-button {
-        position: absolute;
-        top: 30%;
-        right: 15px;
-    }
-    .lit-button img {
-        width: 30px;
-        height: 30px;
-    }
-    </style>
-
-<!--This is for the title-->
+    <!--This is for the title-->
     <header class="bar bar-nav" style="position: initial;">
         <h1 class="title">TOP CHARTS</h1>
     </header>
-<!--This is for the title-->
 
-<!--Content-->
+    <!--Content-->
     <ul class="table-view">
         <li class="table-view-cell media">
             <div class="navigate-right">
-            <img class="media-object pull-left" src="https://i.ytimg.com/vi/j4L2vmBC3xA/maxresdefault.jpg">
-            <img class="media-abject pull-left" src="images/jae5.png" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;">
-            <div class="media-body">
-                <h4>Jae5ive</h4>
-                <p>Song:Mission - Jae5ive<br> Release Date: 04-06-16<br>Duration: 2:17</p>
-            </div>
+                <img class="media-object pull-left" src="https://i.ytimg.com/vi/j4L2vmBC3xA/maxresdefault.jpg">
+                <img class="media-abject pull-left" src="images/jae5.png" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;">
+                <div class="media-body">
+                    <h4>Jae5ive</h4>
+                    <p>Song:Mission - Jae5ive<br> Release Date: 04-06-16<br>Duration: 2:17</p>
+                </div>
             </div>
         </li>
         <li class="table-view-cell media">
             <div class="navigate-right">
-            <img class="media-object pull-left" src="https://i.embed.ly/1/display?key=fc778e44915911e088ae4040f9f86dcd&url=https://i1.sndcdn.com/artworks-000081996621-58zj7r-t500x500.jpg">
-            <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;" >
-            <div class="media-body">
-                <h4>Rob Stone (Place Holder)</h4>
-                <p>Song:D.R.A.M.- Brocolli<br> Release Date: 04-06-16<br>Duration: 3:45</p>
-            </div>
+                <img class="media-object pull-left" src="https://i.embed.ly/1/display?key=fc778e44915911e088ae4040f9f86dcd&url=https://i1.sndcdn.com/artworks-000081996621-58zj7r-t500x500.jpg">
+                <img class="media-object pull-left" src="http://www.cityfolkcollective.com/uploads/3/8/9/6/38964893/1367893_orig.jpg" style="position: relative; width: 50px; height: 50px; top: 69px; left: -36px; margin:-8%;" >
+                <div class="media-body">
+                    <h4>Rob Stone (Place Holder)</h4>
+                    <p>Song:D.R.A.M.- Brocolli<br> Release Date: 04-06-16<br>Duration: 3:45</p>
+                </div>
             </div>
         </li>
     </ul>
-<!--Content-->
 
-<!--This is the bottom bar-->
-<nav class="bar bar-tab">
+    <!--This is the bottom bar-->
+    <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: white;">
             <span class="tab-label">Search</span>
         </a>
@@ -123,43 +106,5 @@
             <span class="tab-label">Profile</span>
         </a>
     </nav>
-<!--This is the bottom bar-->
 </body>
-
-<script type="text/javascript">
-        // TODO: With a database, update discover titles
-        function generateLitButton() {
-            var img = document.createElement("img");
-            var count = document.createElement('p');
-            var centre = document.createElement("center");
-            img.src = "images/lit.png";
-            count.textContent = 0;
-            centre.appendChild(img);
-            centre.appendChild(count);
-            centre.className = "lit-button";
-            centre.active = false;
-            centre.addEventListener("click", function() {
-                var image = this.childNodes[0];
-                var count = this.childNodes[1];
-                var currentCount = parseInt(count.textContent);
-                // TODO: Retrieve information from Firebase and update it
-                if (!this.active) {
-                    image.src = "images/lit-active.png";
-                    count.textContent = ++currentCount;
-                    this.active = true;
-                } else {
-                    image.src = "images/lit.png";
-                    count.textContent = --currentCount;
-                    this.active = false;
-                }
-            });
-            return centre;
-        }
-        window.onload = function() {
-            var tableView = document.getElementsByClassName("navigate-right");
-            for (var i = 0; i < tableView.length; i++)
-                tableView[i].appendChild(generateLitButton());
-        }
-    </script>
-
 </html>

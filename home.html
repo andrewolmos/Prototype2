@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home</title>
+    <title>HOME</title>
     <meta charset="utf-8">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/ratchet.min.css">
     <link rel="stylesheet" type="text/css" href="css/ratchet-theme-ios.min.css">
+
     <style type="text/css">
         body { margin: 0; }
         .grid-container {
@@ -17,7 +18,7 @@
         }
         .row:before,
         .row:after {
-            content: "";
+            content: ' ';
             display: table;
             clear: both;
         }
@@ -26,9 +27,7 @@
             min-height: 1px;
             width: 29.5%;
             padding: 12px;
-            /*background-color: #ffdcdc;*/
         }
-        /*.outline, .outline * { outline: 1px solid #f6a1a1; }*/
         img {
             width: 30%;
             height: 30%;
@@ -38,51 +37,38 @@
             overflow-x: hidden;
             overflow-y: scroll;
             height: 100%;
-            background-color: #000000;
+            background-color: black;
             color: white;
             font-family: "Century Gothic";
         }
-        a{
-            font-family: "Century Gothic";
-        }
-        .tab-item{
-            background-color: #333333;
-        }
-        .title{
+        a { font-family: "Century Gothic"; }
+        .tab-item { background-color: #333; }
+        .title {
             background-color: #CF2728;
             color: white;
             font-family: "Century Gothic";
             font-size: 28px;
         }
-
-        body{
-            background-color: #000000;
-        }
-
-        @media screen and (min-width: 360px) {
-            img{
-                width: 80%;
-                margin: 0 21%;
-            }
-        .column h4{
-            margin: 0 13%;
-            padding: 0 19%;
-            font-size: 12px;
-            }
-        }
-
-        @media screen and (min-height: 360px){
-            .column h4{
-                height: 20%;
-            }
-        }
-        .column h4{
+        body { background-color: black; }
+        .column h4 {
             background-color: black;
             color: #CF2728;
             text-align: center;
             display: inline-block;
             font-family: "Century Gothic";
         }
+        @media screen and (min-width: 360px) {
+            img {
+                width: 80%;
+                margin: 0 21%;
+            }
+            .column h4 {
+                margin: 0 13%;
+                padding: 0 19%;
+                font-size: 12px;
+            }
+        }
+        @media screen and (min-height: 360px) { .column h4 { height: 20%; } }
     </style>
 </head>
 <body>
@@ -132,7 +118,7 @@
         </div>
     </div>
 
-<nav class="bar bar-tab">
+    <nav class="bar bar-tab">
         <a class="tab-item" href="home.html" style="text-decoration: none; color: red;">
             <span class="tab-label">Search</span>
         </a>
