@@ -44,14 +44,14 @@
         body {
             font-family: "Century Gothic";
         }
-        .lit-button img {
-            width: 30px;
-            height: 30px;
-        }
         .lit-button {
             position: absolute;
             top: 30%;
-            right: 15px;
+            right: 25px;
+        }
+        .lit-button img {
+            width: 20px;
+            height: 20px;
         }
         .back {
             position: absolute;
@@ -69,7 +69,7 @@
         <img src="images/back.png" style="width: 40px; height: 40px;"></img>
     </a>
 
-    <ul class="table-view">
+    <ul id="chart" class="table-view">
         <li class="table-view-cell media">
             <div class="navigate-right">
                 <img class="media-object pull-left" src="images/jae5.png">
@@ -109,4 +109,45 @@
         </a>
     </nav>
 </body>
+
+<script type="text/javascript">
+    function generateLitButton(likes) {
+        var img = document.createElement("img");
+        var count = document.createElement('p');
+        var centre = document.createElement("center");
+
+        img.src = "images/lit.png";
+        count.textContent = likes;
+
+        centre.appendChild(img);
+        centre.appendChild(count);
+        centre.className = "lit-button";
+        centre.active = false;
+
+        centre.addEventListener("click", function(event) {
+            var image = this.childNodes[0];
+            var count = this.childNodes[1];
+            var currentCount = parseInt(count.textContent);
+
+            if (!this.active) {
+                image.src = "images/lit-active.png";
+                count.textContent = ++currentCount;
+                this.active = true;
+            } else {
+                image.src = "images/lit.png";
+                count.textContent = --currentCount;
+                this.active = false;
+            }
+        });
+
+        return centre;
+    }
+
+    window.onload = function() {
+        var tableView = document.getElementById("chart");
+
+        for (var i = 0; i < tableView.children.length; i++)
+            tableView.children[i].appendChild(generateLitButton(0));
+    };
+</script>
 </html>
