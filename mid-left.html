@@ -134,9 +134,26 @@
                 count.textContent = --currentCount;
                 this.active = false;
             }
+
+            sortChart();
         });
 
         return centre;
+    }
+
+    function sortChart() { // TODO: Add a transition when moving positions
+        var items = document.getElementsByTagName("li");
+        items = [].slice.call(items);
+
+        var sortedItems = items.sort(function(a, b) {
+            var c = a.getElementsByClassName("lit-button")[0].childNodes[1].textContent;
+            var d = b.getElementsByClassName("lit-button")[0].childNodes[1].textContent;
+            return c < d;
+        });
+
+        sortedItems.forEach(function(child) {
+            document.getElementById("chart").appendChild(child);
+        });
     }
 
     window.onload = function() {
@@ -144,6 +161,8 @@
 
         for (var i = 0; i < tableView.children.length; i++)
             tableView.children[i].appendChild(generateLitButton(0));
+
+        sortChart();
     };
 </script>
 </html>
