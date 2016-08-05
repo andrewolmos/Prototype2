@@ -44,12 +44,7 @@
         }
         #name {
             position: absolute;
-            /*margin: 30px 0 0 120px;*/
             color: white;
-        }
-        #album-carousel { 
-            display: none;
-            position: initial;
         }
         @media screen and (max-height: 640px) { .carousel { margin: 0 0 15% 0; } }
         .bar {
@@ -143,20 +138,21 @@
     </nav>
 </body>
 <script type="text/javascript">
-    var config = {
-        apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
-        authDomain: "turnt-f422a.firebaseapp.com",
-        databaseURL: "https://turnt-f422a.firebaseio.com",
-        storageBucket: "turnt-f422a.appspot.com",
-    };
+    // var config = {
+    //     apiKey: "AIzaSyC5oYU1Wio9T5hXF8B8bR4vpRBeXgnc0HI",
+    //     authDomain: "turnt-f422a.firebaseapp.com",
+    //     databaseURL: "https://turnt-f422a.firebaseio.com",
+    //     storageBucket: "turnt-f422a.appspot.com",
+    // };
 
-    firebase.initializeApp(config);
+    // firebase.initializeApp(config);
 
     window.onload = function() {
+        var user = JSON.parse(localStorage.currentUser);
+
         var name = document.getElementById("name");
         var bio = document.getElementById("biography");
         var carousel = document.getElementById("album-carousel");
-        var user = JSON.parse(localStorage.currentUser);
 
         name.textContent = user.name;
         bio.textContent = user.bio;

@@ -107,6 +107,11 @@
 
     firebase.initializeApp(config);
 
+    if (localStorage.currentUser !== undefined) {
+        delete localStorage.currentUser;
+        delete localStorage.uid;
+    }
+
     function signIn() {
         var email = document.getElementsByTagName("input")[0].value;
         var password = document.getElementsByTagName("input")[1].value;
@@ -114,6 +119,7 @@
             displayPopup("ERROR", "Enter a valid email.");
             return;
         }
+
         if (password.lenght < 4) {
             displayPopup("ERROR", "Please enter a password.");
             return;
@@ -126,6 +132,7 @@
                 displayPopup("ERROR", error.message);
             console.log(error);
         });
+
         displayPopup("SUCCESS", "Welcome!");
     }
 
@@ -148,6 +155,7 @@
         var button = document.getElementById("confirm-button");
         var seethroughScreen = document.getElementById("seethrough-screen");
         var confirmBox = document.getElementById("confirm-box");
+
         if (type === "SUCCESS") {
             msg.innerHTML = message;
             button.innerHTML = "Continue";
@@ -161,7 +169,7 @@
             button.onclick = function() {
                 seethroughScreen.style.display = "none";
                 confirmBox.style.display = "none";
-            }
+            };
         }
 
         seethroughScreen.style.display = "initial";

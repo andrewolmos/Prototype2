@@ -58,8 +58,8 @@
         }
         #confirm-box {
             position: absolute;
-            width: 15em; /* 60% */
-            height: 15em; /* 40% */
+            width: 15em;
+            height: 15em;
             top: 25%;
             left: 25%;
             background-color: #fff;
@@ -67,7 +67,7 @@
         }
         #confirm-box h1 {
             text-align: center;
-            padding: 1em 0; /* 10% 0 */
+            padding: 1em 0;
         }
         #content { margin: 10%; }
         .back{
@@ -121,16 +121,20 @@
         databaseURL: "https://turnt-f422a.firebaseio.com",
         storageBucket: "turnt-f422a.appspot.com",
     };
+
     firebase.initializeApp(config);
+
     function signUp() {
         var email = document.getElementsByTagName("input")[0].value;
         localStorage.username = document.getElementsByTagName("input")[1].value;
         var password = document.getElementsByTagName("input")[2].value;
         var confirmedPassword = document.getElementsByTagName("input")[3].value;
+
         if (email.length < 4) {
             displayPopup("ERROR", "Please enter a valid email");
             return;
         }
+
         if (password === confirmedPassword) {
             if (confirmedPassword.length < 4) {
                 displayPopup("ERROR", "Password is too short!");
@@ -152,11 +156,13 @@
             return;
         }
     }
+
     function sendConfirmationEmail() {
         firebase.auth().currentUser.sendEmailVerification().then(function() {
             alert("Email verification sent!");
         });
     }
+
     // TODO: Fix confirm-box dimensions and positions on multiple screens.
     function displayPopup(type, message) {
         var msg = document.getElementById("message");
@@ -178,11 +184,10 @@
             button.onclick = function() {
                 seethroughScreen.style.display = "none";
                 confirmBox.style.display = "none";
-            }
+            };
         }
         seethroughScreen.style.display = "initial";
         confirmBox.style.display = "initial";
     }
 </script>
-
 </html>
