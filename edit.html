@@ -60,6 +60,10 @@
             background-color: #CF2728;
             border: none;
         }
+        .container {
+            overflow: scroll;
+            height: 100%;
+        }
     </style>
 
 
@@ -72,24 +76,31 @@
      <div class="container">
         <form>
             <input id="name" type="text" name="name" placeholder="Name">
+            <input id="username" type="text" name="username" placeholder="Username">
             <textarea id="biography" rows="4" cols="50" placeholder="Biography"></textarea>
+            <input id="email" type="text" name="email" placeholder="Email">
             <div>
                 <h4>User Type:</h4>
                 <select id="user-type">
-                    <option value="normal">Normal</option>
-                    <option value="artist">Artist</option>
+                    <option value="normal">Listener</option>
+                    <option value="artist">Rapper</option>
                 </select>
+                <input id="artist-name" type="text" name="artist-name" placeholder="Artist Name">
             </div>
-            <input id="birthday" type="date" name="birthday" placeholder="mm/dd/yyyy">
+            <div>
+                <h4>Birthday:</h4>
+                <input id="birthday" type="date" name="birthday" placeholder="mm/dd/yyyy">
+            </div>
         </form>
         <button onclick="send();" class="btn btn-positive btn-block">Done</button>
+        <a id="cancel-button" href="settings.html" class="btn btn-negative btn-block">Cancel</a>
     </div>
 
     <div id="see-through-screen"></div>
     <div id="confirm-box">
         <div id="content">
             <h1 id="message"></h1>
-            <a id="confirm-button" href="home.html"></a>
+            <a id="confirm-button" href="#"></a>
         </div>
     </div>
 </body>
@@ -101,39 +112,55 @@
         databaseURL: "https://turnt-f422a.firebaseio.com",
         storageBucket: "turnt-f422a.appspot.com",
     };
+
     firebase.initializeApp(config);
+
     function getAge(birthday) {
         var age = new Date(Date.now() - Date.parse(birthday));
         return Math.abs(age.getUTCFullYear() - 1970);
     }
-    function send() {
-        var user = firebase.database().ref("/users/" + localStorage.uid); // true
-        var birthday = document.getElementById("birthday").value; // 87
 
-        user.set({
-            name: document.getElementById("name").value,//78
-            age: getAge(birthday),//131
-            email: localStorage.email, // true
-            type: document.getElementById("user-type").value,//82
-            bio: document.getElementById("biography").value,//79
-            birthday: birthday,//131
-            username: localStorage.username//true
-        });
+    function send() {
+        var userType = document.getElementById("user-type").value === "artist" ? "/artists/" : "/users/";
+
+        var user = firebase.database().ref(userType + localStorage.uid);
+        var birthday = document.getElementById("birthday").value;
+
+        var object = {
+            age: getAge(birthday),
+            bio: document.getElementById("biography").value,
+            birthday: birthday,
+            email: localStorage.email ? localStorage.email : document.getElementById("email").value,
+            name: document.getElementById("name").value,
+            type: document.getElementById("user-type").value,
+            username: localStorage.username ? localStorage.username : document.getElementById("username").value
+        };
+
+        if (userType === "/users/") {
+            user.set(object);
+        } else {
+            object.artistName = document.getElementById("artist-name").value;
+            object.likes = 0;
+            user.set(object);
+        }
 
         user.once("value").then(function(dataSnapshot) {
             localStorage.currentUser = JSON.stringify(dataSnapshot.val());
-            delete localStorage.email; // to free up memory
+            firebase.database().ref("/UIDs/" + localStorage.uid).set(object.type);
+            delete localStorage.email;
             delete localStorage.username;
         });
 
         displayPopup("SUCCESS", "Continue");
     }
+
     // TODO: Fix confirm-box dimensions and positions on multiple screens.
     function displayPopup(type, message) {
         var msg = document.getElementById("message");
         var button = document.getElementById("confirm-button");
         var seethroughScreen = document.getElementById("see-through-screen");
         var confirmBox = document.getElementById("confirm-box");
+
         if (type === "SUCCESS") {
             msg.innerHTML = message;
             button.innerHTML = "Continue";
@@ -147,11 +174,51 @@
             button.onclick = function() {
                 seethroughScreen.style.display = "none";
                 confirmBox.style.display = "none";
-            }
+            };
         }
+
         seethroughScreen.style.display = "initial";
         confirmBox.style.display = "initial";
     }
+
+    window.onload = function() {
+        var artistName = document.getElementById("artist-name");
+        var userType = document.getElementById("user-type");
+
+        userType.addEventListener("change", function() {
+            if (this.value === "artist")
+                artistName.style.display = "initial";
+            else
+                artistName.style.display = "none";
+        });
+
+        if (localStorage.currentUser !== undefined) {
+            var currentUser = JSON.parse(localStorage.currentUser);
+
+            var email = document.getElementById("email");
+            var username = document.getElementById("username");
+
+            if (currentUser.type === "artist") {
+                artistName.style.display = "initial";
+                artistName.value = currentUser.artistName;
+            }
+
+            if (localStorage.email === undefined) {
+                email.style.display = "initial";
+                email.value = currentUser.email;
+
+                username.style.display = "initial";
+                username.value = currentUser.username;
+
+                document.getElementById("cancel-button").style.display = "block";
+            }
+
+            document.getElementById("name").value = currentUser.name;
+            document.getElementById("biography").value = currentUser.bio;
+            document.getElementById("user-type").value = currentUser.type;
+            document.getElementById("birthday").value = currentUser.birthday;
+        }
+    };
 </script>
 
 </html>
